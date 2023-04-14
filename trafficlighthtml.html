@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D7 LED Toggler</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Traffic Control</h1>
+    <button style="background-color: red; color: white;", button onclick="red()">RED</button>
+    <button style="background-color: yellow; color: black;", button onclick="yellow()">YELLOW</button>
+    <button style="background-color: green; color: white;", button onclick="green()">GREEN</button>
+    <script>
+      var deviceID = "e00fce68777387e21be98112"; // Replace with your Particle device ID
+      var accessToken = "c8a1afedb15ddbb9c18d970afe429d04f00466b5"; // Replace with your Particle access token
+      
+      function red() {
+        var url = "https://api.particle.io/v1/devices/" + deviceID + "/led_colour";
+        var data = { args: "red", access_token: accessToken };
+        $.post(url, data);
+      }
+      
+      function yellow() {
+        var url = "https://api.particle.io/v1/devices/" + deviceID + "/led_colour";
+        var data = { args: "yellow", access_token: accessToken };
+        $.post(url, data);
+      }
+
+      function green() {
+        var url = "https://api.particle.io/v1/devices/" + deviceID + "/led_colour";
+        var data = { args: "green", access_token: accessToken };
+        $.post(url, data);
+      }
+    </script>
+  </body>
+</html>
